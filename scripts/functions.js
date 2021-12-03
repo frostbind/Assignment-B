@@ -11,7 +11,7 @@ function createSingleIndex(object) {
     let div = document.createElement("div");
     let p = document.createElement("p");
 
-    contact.href = "page3.html";
+    //contact.href = "page3.html";
     div.classList.add("contact");
     p.innerHTML = object.name;
 
@@ -22,12 +22,12 @@ function createSingleIndex(object) {
 
 function renderIndex() {
     for (let i = 0;i < contactList.length;i++) {
-        console.log("method complete");
         $main.append(createSingleIndex(contactList[i]));
     } 
 }
 
 function renderView(object) {
+    console.log(object)
     let contact = document.createElement("div");
     let contactName = document.createElement("div");
     let profilePic = document.createElement("img");
@@ -71,7 +71,6 @@ function renderView(object) {
     contact.append(contactAddress);
     contact.append(buttons);
 
-    console.log(contact);
     $main.append(contact);
 }
 
@@ -119,7 +118,7 @@ function renderCreate() {
     extraField2.classList.add("extrafield");
     extraField2.id = "extraphonefield";
 
-    inputContainer3.classList.add("inoutcontainer");
+    inputContainer3.classList.add("inputcontainer");
     contactAddress.id = "contactaddress";
     contactAddress.placeholder = "Contact Address";
     extraField3.classList.add("extrafield");
@@ -131,18 +130,19 @@ function renderCreate() {
     extraField4.classList.add("extrafield");
     extraField4.id = "extraemailfield";
 
-    inputContainer5.classList.add("inputcontainer");
+    inputContainer5.classList.add("buttons");
     submitButton.classList.add("button");
     submitButton.classList.add("save");
     submitButton.id = "savecontact";
     resetButton.classList.add("button");
     resetButton.classList.add("cancel")
     resetButton.id = "cancel";
+    submitButton.name = "savecontact";
+    resetButton.name = "cancel";
 
     profilePic.src = "img/profile.jpg";
     profilePic.alt = "Profile picture";
-    submitButton.type = "submit";
-    resetButton.type = "reset";
+    
 
     submitButton.innerHTML = "Save";
     resetButton.innerHTML = "Cancel";
@@ -162,10 +162,11 @@ function renderCreate() {
     form.append(inputContainer2);
     form.append(inputContainer3);
     form.append(inputContainer4);
-    form.append(inputContainer5);
+    
 
     contactImg.append(profilePic);
     formDiv.append(form);
+    formDiv.append(inputContainer5);
 
     contactEdit.append(contactImg);
     contactEdit.append(formDiv);
